@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+requests
+prometheus-client
+pydantic
+python-multipart

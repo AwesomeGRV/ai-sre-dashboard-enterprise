@@ -1,0 +1,85 @@
+version: "3.9"
+services:
+  app:
+    build: ./apps/sample-node-app
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    depends_on:
+      - otel
+    networks:
+      - monitoring
+
+  api:
+    build: ./backend/api
+    ports:
+      - "8000:8000"
+    environment:
+      - NODE_ENV=production
+    depends_on:
+      - prometheus
+      - app
+    networks:
+      - monitoring
+
+  frontend:
+    build: ./frontend/dashboard
+    ports:
+      - "3001:3000"
+    environment:
+      - REACT_APP_API_URL=http://localhost:8000
+    depends_on:
+      - api
+    networks:
+      - monitoring
+
+  otel:
+    image: otel/opentelemetry-collector-contrib:latest
+    volumes:
+      - ./otel/collector.yaml:/etc/otelcol/config.yaml
+    command: ["--config=/etc/otelcol/config.yaml"]
+    ports:
+      - "4317:4317"
+      - "4318:4318"
+      - "8889:8889"
+    depends_on:
+      - prometheus
+    networks:
+      - monitoring
+
+  prometheus:
+    image: prom/prometheus:latest
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--storage.tsdb.retention.time=200h'
+      - '--web.enable-lifecycle'
+    networks:
+      - monitoring
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3002:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    volumes:
+      - grafana-storage:/var/lib/grafana
+    depends_on:
+      - prometheus
+    networks:
+      - monitoring
+
+networks:
+  monitoring:
+    driver: bridge
+
+volumes:
+  grafana-storage:

@@ -1,0 +1,39 @@
+receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: 0.0.0.0:4317
+      http:
+        endpoint: 0.0.0.0:4318
+  prometheus:
+    config:
+      scrape_configs:
+        - job_name: 'sample-app'
+          static_configs:
+            - targets: ['app:3000']
+
+exporters:
+  prometheus:
+    endpoint: "0.0.0.0:8889"
+  logging:
+    loglevel: debug
+
+processors:
+  batch:
+
+extensions:
+  health_check:
+  pprof:
+    endpoint: 0.0.0.0:1777
+
+service:
+  extensions: [health_check, pprof]
+  pipelines:
+    metrics:
+      receivers: [otlp, prometheus]
+      processors: [batch]
+      exporters: [prometheus, logging]
+    traces:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [logging]
