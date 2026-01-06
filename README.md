@@ -215,10 +215,17 @@ terraform apply
 
 ### Azure Services Deployed:
 - **Azure Container Apps** (for microservices)
+  - Sample App (Node.js with OpenTelemetry)
+  - Backend API (FastAPI with AI analysis)
+  - Frontend Dashboard (React SPA)
+- **Azure Container Registry** (for Docker image storage)
 - **Azure Monitor** (for metrics and logs)
-- **Application Insights** (for APM)
-- **Azure Container Registry** (for images)
+  - Log Analytics Workspace
+  - Application Insights
+  - Metric Alert Rules
 - **Virtual Network** (for secure connectivity)
+  - VNet with dedicated subnet for Container Apps
+  - Network security and isolation
 
 ---
 
