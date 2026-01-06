@@ -14,7 +14,7 @@ or Copilot‑style tools to:
 
 ---
 
-## 🚀 Key Capabilities
+##  Key Capabilities
 - **End‑to‑end observability** (metrics, traces, logs)
 - **Application availability & SLA indicators**
 - **Prometheus‑based metrics storage**
@@ -26,7 +26,7 @@ or Copilot‑style tools to:
 
 ---
 
-## 📋 Prerequisites
+##  Prerequisites
 
 Before running this demo, ensure you have:
 
@@ -41,7 +41,7 @@ Before running this demo, ensure you have:
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 React Dashboard (Single Pane of Glass)    :3001
@@ -59,7 +59,7 @@ React Dashboard (Single Pane of Glass)    :3001
 
 ---
 
-## 🚀 Quick Start (Local Demo)
+##  Quick Start (Local Demo)
 
 ### Option 1: Docker Compose (Recommended)
 
@@ -99,20 +99,20 @@ docker compose up -d prometheus grafana otel
 
 ---
 
-## 🌐 Access Points
+##  Access Points
 
 Once running, access the dashboard at:
 
-- **🎯 Main Dashboard**: http://localhost:3001
-- **📊 Backend API**: http://localhost:8000
-- **🚀 Sample App**: http://localhost:3000
-- **📈 Prometheus**: http://localhost:9090
-- **📊 Grafana**: http://localhost:3002 (admin/admin)
-- **🔍 OTel Collector**: http://localhost:4318
+- ** Main Dashboard**: http://localhost:3001
+- ** Backend API**: http://localhost:8000
+- ** Sample App**: http://localhost:3000
+- ** Prometheus**: http://localhost:9090
+- ** Grafana**: http://localhost:3002 (admin/admin)
+- ** OTel Collector**: http://localhost:4318
 
 ---
 
-## 🎯 Demo Features
+##  Demo Features
 
 ### 1. **System Health Overview**
 - Real-time service status
@@ -136,7 +136,7 @@ Once running, access the dashboard at:
 
 ---
 
-## 🛠️ Interactive Demo Steps
+##  Interactive Demo Steps
 
 1. **Generate Demo Incidents**
    - Click "Generate Demo Incidents" button
@@ -156,7 +156,7 @@ Once running, access the dashboard at:
 
 ---
 
-## 🧪 Testing the System
+##  Testing the System
 
 ### Generate Load
 ```bash
@@ -190,7 +190,7 @@ curl http://localhost:8000/sla
 
 ---
 
-## 🤖 AI Integration
+##  AI Integration
 
 The system uses AI to provide:
 
@@ -203,7 +203,7 @@ The system uses AI to provide:
 
 ---
 
-## ☁️ Azure Deployment
+##  Azure Deployment
 
 ### Terraform Deployment
 ```bash
@@ -222,7 +222,7 @@ terraform apply
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 ai-sre-dashboard-enterprise/
@@ -247,7 +247,7 @@ ai-sre-dashboard-enterprise/
 
 ---
 
-## 🔧 Configuration
+##  Configuration
 
 ### Environment Variables
 ```bash
@@ -265,7 +265,7 @@ OPENAI_API_KEY=your_api_key_here
 
 ---
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### Common Issues
 
@@ -292,7 +292,7 @@ OPENAI_API_KEY=your_api_key_here
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 1. Fork the repository
 2. Create a feature branch
@@ -302,13 +302,13 @@ OPENAI_API_KEY=your_api_key_here
 
 ---
 
-## 📄 License
+##  License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 ---
 
-## 🌟 Why This Project Matters
+##  Why This Project Matters
 
 This repo demonstrates **real SRE problem‑solving**, not just dashboards.
 It aligns with modern **Azure SRE Agent / Copilot** patterns and provides:
@@ -327,7 +327,7 @@ Perfect for:
 
 ---
 
-## 📞 Support
+##  Support
 
 For questions or issues:
 1. Check the troubleshooting section
@@ -336,5 +336,5 @@ For questions or issues:
 
 ---
 
-**🚀 Ready to deploy? Your AI-Powered SRE Dashboard is now complete!**
+** Ready to deploy? Your AI-Powered SRE Dashboard is now complete!**
 
